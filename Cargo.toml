@@ -16,3 +16,6 @@ log = "0.4.17"
 [build-dependencies]
 clap = { version = "4.1.8", features = ["derive"] }
 clap_mangen = "0.2.9"
+
+[profile.release]
+strip = true
