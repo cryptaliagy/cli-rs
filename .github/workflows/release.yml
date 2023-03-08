@@ -54,7 +54,7 @@ jobs:
       - name: Build the final binaries
         run: |
           cargo build --release --target ${{ env.target }}  \
-            && mkdir release
+            && mkdir release \
             && mv ./target/${{ env.target }}/release/${{ env.binary_name }} ./release \
             && mv ./target/man/${{ env.binary_name }}.1 ./release
 
