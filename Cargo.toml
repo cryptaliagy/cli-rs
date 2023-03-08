@@ -9,13 +9,19 @@ description = "A template project to bootstrap new CLIs in rust"
 
 [dependencies]
 chrono = { version = "0.4.23", default-features = false, features = ["std", "clock"] }
-clap = { version = "4.1.8", features = ["derive", "env", "wrap_help"] }
+clap = { version = "4.1.8", features = ["derive"] }
 fern = { version = "0.6.1", features = ["colored"] }
 log = "0.4.17"
 
 [build-dependencies]
 clap = { version = "4.1.8", features = ["derive"] }
 clap_mangen = "0.2.9"
+
+[features]
+default = ["env", "colors", "wrap_help"]
+env = ["clap/env"]
+wrap_help = ["clap/wrap_help"]
+colors = ["fern/colored"]
 
 [profile.release]
 strip = true

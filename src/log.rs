@@ -1,9 +1,19 @@
+//! # Setting up logging
+//!
+//! Coloured output is available by default with the `colors` feature, but can be disabled
+//! when installing if using the `--no-default-features` flag.
+
 use crate::cli::Cli;
 
+#[cfg(feature = "colors")]
 use fern::colors::{Color, ColoredLevelConfig};
 use log::{debug, error, info, trace, warn, LevelFilter};
 
+/// Configures the logging according to the CLI configurations. This
+/// enables coloured output (if using `colors` feature), and formats the
+/// output to include the file and line (if running in `debug` profile).
 pub fn setup_logging(cli: &Cli) {
+    #[cfg(feature = "colors")]
     let colors = ColoredLevelConfig::new()
         .trace(Color::BrightMagenta)
         .debug(Color::Cyan)
@@ -22,6 +32,12 @@ pub fn setup_logging(cli: &Cli) {
 
     let mut log_config = fern::Dispatch::new()
         .format(move |out, message, record| {
+            #[cfg(feature = "colors")]
+            let level = colors.color(record.level());
+
+            #[cfg(not(feature = "colors"))]
+            let level = record.level();
+
             if cfg!(debug_assertions) {
                 out.finish(format_args!(
                     "[{}][{}][{}:{}][{}]\t{}",
@@ -29,7 +45,7 @@ pub fn setup_logging(cli: &Cli) {
                     record.target(),
                     record.file().unwrap(),
                     record.line().unwrap(),
-                    colors.color(record.level()),
+                    level,
                     message,
                 ))
             } else {
@@ -37,7 +53,7 @@ pub fn setup_logging(cli: &Cli) {
                     "[{}][{}][{}]\t{}",
                     chrono::Utc::now().format("%Y-%m-%d - %H:%M:%S"),
                     record.target(),
-                    colors.color(record.level()),
+                    level,
                     message,
                 ))
             }
