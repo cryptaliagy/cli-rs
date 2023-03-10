@@ -2,6 +2,7 @@
 
 [![tests](https://github.com/taliamax/cli-rs/actions/workflows/test.yml/badge.svg)](https://github.com/taliamax/cli-rs/actions/workflows/test.yml)
 [![release](https://github.com/taliamax/cli-rs/actions/workflows/release.yml/badge.svg)](https://github.com/taliamax/cli-rs/actions/workflows/release.yml)
+[![nightly-scan](https://github.com/taliamax/cli-rs/actions/workflows/nightly-scan.yml/badge.svg)](https://github.com/taliamax/cli-rs/actions/workflows/nightly-scan.yml)
 
 This is a template repository meant to be used as a starting point for developing a new Rust-based CLI. This handles most of the key bootstrapping elements that I require when writing a new CLI.
 

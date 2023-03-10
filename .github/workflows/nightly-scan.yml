@@ -1,0 +1,23 @@
+name: nightly-scan
+
+on:
+  schedule:
+    # 7 AM UTC every day
+    - cron: "0 7 * * *"
+  workflow_dispatch:
+
+jobs:
+  cargo-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install rust tool chain
+        uses: dtolnay/rust-toolchain@master
+        with:
+          toolchain: stable
+          components: rustfmt, clippy
+
+      - name: Run the security scanner
+        run: cargo audit
