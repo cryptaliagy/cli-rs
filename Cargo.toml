@@ -8,14 +8,14 @@ description = "A template project to bootstrap new CLIs in rust"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-chrono = { version = "0.4.26", default-features = false, features = ["std", "clock"] }
-clap = { version = "4.3.19", default-features = false, features = ["derive", "error-context", "help", "std", "suggestions", "usage"] }
+chrono = { version = "0.4.31", default-features = false, features = ["std", "clock"] }
+clap = { version = "4.4.11", default-features = false, features = ["derive", "error-context", "help", "std", "suggestions", "usage"] }
 fern = { version = "0.6.2" }
-log = "0.4.19"
+log = "0.4.20"
 
 [build-dependencies]
-clap = { version = "4.3.19", default-features = false, features = ["help", "usage", "derive"] }
-clap_mangen = "0.2.12"
+clap = { version = "4.4.11", default-features = false, features = ["help", "usage", "derive"] }
+clap_mangen = "0.2.15"
 
 [features]
 default = ["env", "colors", "wrap_help"]
