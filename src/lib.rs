@@ -9,10 +9,9 @@
 //! for instructions on how to set up this template repository for new projects
 //!
 //! ## Default Features
-//! - **colors**: Causes the logging level of a log message to be coloured depending on its level
+//! - **colors**: Enables the `clap` feature for color.
 //! - **env**: Enables the `clap` feature `env` for pulling values from the environment
 //! - **wrap_help**: Enables the `clap` feature `wrap_help` for wrapping help messages for terminal size
 //!
 
 pub mod cli;
-pub mod log;

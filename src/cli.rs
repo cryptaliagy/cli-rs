@@ -17,5 +17,5 @@ use clap::Parser;
 pub struct Cli {
     /// Increases logging verbosity, up to max of 3
     #[arg(short, long, action = clap::ArgAction::Count)]
-    pub(crate) verbose: u8,
+    pub verbose: u8,
 }
