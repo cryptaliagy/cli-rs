@@ -1,9 +1,10 @@
+mod logging;
+
 use clap::Parser;
 
 use cli_rs::cli::Cli;
-use cli_rs::log::setup_logging;
-
-use log::debug;
+use logging::setup_logging;
+use tracing::debug;
 
 fn main() {
     let cli = Cli::parse();

@@ -17,7 +17,7 @@ This is a template repository meant to be used as a starting point for developin
 
 ### CLI
 
-1. Logging configuration with the `fern` crate
+1. Logging configuration with the `tracing` crate
 1. Initial base CLI struct with count-based verbosity
 1. `manfile` generation on build based on `clap` CLI command
 
